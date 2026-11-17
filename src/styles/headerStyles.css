@@ -1,0 +1,21 @@
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 10px;
+    background: #fefefe;
+    color: #18262e;
+    border-bottom: 2px solid #18262e;
+}
+
+header img {
+    width: 50px;
+    background: #fefefe;
+}
+
+header h2 {
+    font-weight: 600;
+    background: #fefefe;
+}

@@ -1,3 +1,11 @@
+import { Header } from './components/Header';
+import { Main } from './components/Main';
+
 export const App = () => {
-    return <h1>Welcome to Yes Chef!</h1>;
+    return (
+        <>
+            <Header />
+            <Main />
+        </>
+    );
 };
