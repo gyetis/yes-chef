@@ -5,7 +5,7 @@ export const Header = () => {
     return (
         <header>
             <img src={chefIcon} alt="Chef Icon" />
-            <h2>Yes Chef!</h2>
+            <h1>Yes Chef!</h1>
         </header>
     );
 };

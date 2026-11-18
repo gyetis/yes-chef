@@ -1,3 +1,91 @@
 main {
-    padding: 20px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 70px;
+}
+
+main p {
+    align-self: center;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+form input {
+    border-radius: 4px;
+    border: 2px solid #18262e;
+    padding: 10px;
+    flex-grow: 1;
+    height: 35px;
+    min-width: 150px;
+    max-width: 350px;
+}
+
+.submit-btn {
+    font-family: Inter, sans-serif;
+    height: 35px;
+    width: 150px;
+    border-radius: 4px;
+    border: none;
+    background: #18262e;
+    color: #fefefe;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    opacity: 0.6;
+}
+
+.submit-btn::before {
+    content: '+';
+    margin-right: 5px;
+}
+
+.clear-btn {
+    font-family: Inter, sans-serif;
+    height: 35px;
+    width: 150px;
+    border-radius: 4px;
+    border: none;
+    background: #db4f4f;
+    color: #fefefe;
+    cursor: pointer;
+}
+
+.clear-btn:hover {
+    opacity: 0.6;
+}
+
+.ingredient-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.ingredient-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.ingredient-delete-btn {
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    background: #db4f4f;
+    color: white;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.ingredient-delete-btn:hover {
+    opacity: 0.6;
 }
