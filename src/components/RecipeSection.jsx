@@ -1,7 +1,6 @@
 import '../styles/recipeSectionStyles.css';
 
 export const RecipeSection = ({ recipe }) => {
-    console.log(recipe);
     return (
         <section>
             <h3>Chef Recommends {recipe.name} 🎉</h3>
