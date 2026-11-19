@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import '../styles/mainStyles.css';
+import '../styles/ingredientSectionStyles.css';
 import { IngredientItem } from './IngredientItem';
 
-export const IngredientSection = () => {
+export const IngredientSection = ({ setRecipeShown }) => {
     const [ingredients, setIngredients] = useState([]);
 
     function addIngredient(formData) {
@@ -19,13 +19,22 @@ export const IngredientSection = () => {
     }
 
     function handleOnDelete(ingredientToDelete) {
-        setIngredients((current) =>
-            current.filter((ingredient) => ingredient !== ingredientToDelete)
-        );
+        setIngredients((current) => {
+            const nextIngredients = current.filter(
+                (ingredient) => ingredient !== ingredientToDelete
+            );
+            if (nextIngredients.length <= 3) setRecipeShown(false);
+            return nextIngredients;
+        });
     }
 
     function handleClearAll() {
         setIngredients([]);
+        setRecipeShown(false);
+    }
+
+    function handleGetRecipe() {
+        setRecipeShown(true);
     }
 
     return (
@@ -73,7 +82,7 @@ export const IngredientSection = () => {
                         <h4>Ready for a recipe?</h4>
                         <p>Generate a recipe from your list of ingredients.</p>
                     </div>
-                    <button>Get a recipe</button>
+                    <button onClick={handleGetRecipe}>Get a recipe</button>
                 </div>
             )}
         </section>

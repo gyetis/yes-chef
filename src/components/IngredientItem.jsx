@@ -1,3 +1,5 @@
+import '../styles/ingredientSectionStyles.css';
+
 export const IngredientItem = ({ item, onDelete }) => {
     return (
         <div className="ingredient-item">
