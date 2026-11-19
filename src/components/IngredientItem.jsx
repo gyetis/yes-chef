@@ -7,7 +7,7 @@ export const IngredientItem = ({ item, onDelete }) => {
                 type="button"
                 onClick={onDelete}
             >
-                x
+                X
             </button>
         </div>
     );

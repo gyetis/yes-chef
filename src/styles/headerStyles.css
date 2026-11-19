@@ -3,7 +3,7 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 15px;
     gap: 10px;
     background: #fefefe;
     color: #18262e;
@@ -11,7 +11,7 @@ header {
 }
 
 header img {
-    width: 50px;
+    width: 45px;
     background: #fefefe;
 }
 
