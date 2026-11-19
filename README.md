@@ -1,6 +1,6 @@
 # Yes Chef!
 
-A platform for generating recipes with given ingredients with the help of AI.
+A platform for generating recipes with selected ingredients with the help of AI.
 
 ## Getting Started
 
