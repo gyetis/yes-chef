@@ -12,8 +12,7 @@ You are required to have a Google AI Studio account (https://aistudio.google.com
    `cp .env.example .env`
 3. Once you sign-in and login to Google AI Studio, go to Dashboard by clicking the Dashboard button on mid-left side.
 4. The menu should show you a free tier key. Copy this key.
-5. Open `.env` that you created on step 2 and copy your personal API key to the relevant variable.
-6. Open `.env` that you created on step 2 and replace `<YOUR_API_KEY>` in `VITE_HUGGING_FACE_API_KEY` with your token.
+5. Open `.env` that you created on step 2 and replace `<YOUR_API_KEY>` in `VITE_HUGGING_FACE_API_KEY` with your token.
 ```
 
 ## Getting Started
