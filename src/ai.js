@@ -16,7 +16,7 @@ export async function getRecipe(ingredientsArr) {
     const response = await googleGenAI.interactions.create({
         model: 'gemini-3.5-flash-lite',
         input: ingredientsArr.join(', '),
-        system_instruction: ` You are an assistant that receives a list of ingredients and suggests a recipe they could make with some or all of them. You may include a few additional ingredients. Return only valid JSON with this shape: {"introduction":"...","name":"...","ingredients":["..."],"instructions":["..."]}. Do not wrap the JSON in markdown or a code fence.`,
+        system_instruction: `You are an assistant that receives a list of ingredients that a user has and suggests a recipe they could make with some or all of those ingredients. You don't need to use every ingredient they mention in your recipe. The recipe can include additional ingredients they didn't mention, but try not to include too many extra ingredients. Format your response in markdown to make it easier to render to a web page`,
     });
 
     const content = response.output_text;
@@ -24,38 +24,5 @@ export async function getRecipe(ingredientsArr) {
         throw new Error('The recipe service returned an empty response.');
     }
 
-    const jsonContent = content
-        .trim()
-        .replace(/^```(?:json)?\s*/i, '')
-        .replace(/\s*```$/, '');
-
-    let recipe;
-    try {
-        recipe = JSON.parse(jsonContent);
-    } catch {
-        throw new Error(
-            'The recipe service returned an unreadable response. Please try again.'
-        );
-    }
-
-    if (
-        !recipe ||
-        typeof recipe !== 'object' ||
-        typeof recipe.name !== 'string' ||
-        typeof recipe.introduction !== 'string' ||
-        !Array.isArray(recipe.ingredients) ||
-        !recipe.ingredients.every(
-            (ingredient) => typeof ingredient === 'string'
-        ) ||
-        !Array.isArray(recipe.instructions) ||
-        !recipe.instructions.every(
-            (instruction) => typeof instruction === 'string'
-        )
-    ) {
-        throw new Error(
-            'The recipe service returned a recipe in an unexpected format. Please try again.'
-        );
-    }
-
-    return recipe;
+    return content;
 }

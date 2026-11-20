@@ -1,24 +1,11 @@
 import '../styles/recipeSectionStyles.css';
+import ReactMarkdown from 'react-markdown';
 
 export const RecipeSection = ({ recipe }) => {
     return (
-        <section>
-            <h3>Chef Recommends {recipe.name} 🎉</h3>
-            <article className="recipe-container" aria-live="polite">
-                <p>{recipe.introduction}</p>
-                <strong>Ingredients:</strong>
-                <ul>
-                    {recipe.ingredients.map((ingredient, index) => {
-                        return <li key={index}>{ingredient}</li>;
-                    })}
-                </ul>
-                <strong>Instructions:</strong>
-                <ol>
-                    {recipe.instructions.map((instruction, index) => {
-                        return <li key={index}>{instruction}</li>;
-                    })}
-                </ol>
-            </article>
+        <section className="recipe-container" aria-live="polite">
+            <h3>Chef Recommends 🎉</h3>
+            <ReactMarkdown>{recipe}</ReactMarkdown>
         </section>
     );
 };
