@@ -1,11 +1,13 @@
-import { useState } from 'react';
-
 import '../styles/ingredientSectionStyles.css';
 import { IngredientItem } from './IngredientItem';
 
-export const IngredientSection = ({ setRecipeShown }) => {
-    const [ingredients, setIngredients] = useState([]);
-
+export const IngredientSection = ({
+    ingredients,
+    setIngredients,
+    setShouldShowRecipe,
+    isGenerating,
+    onGetRecipe,
+}) => {
     function addIngredient(formData) {
         const ingredient = String(formData.get('ingredient') ?? '')
             .trim()
@@ -23,18 +25,14 @@ export const IngredientSection = ({ setRecipeShown }) => {
             const nextIngredients = current.filter(
                 (ingredient) => ingredient !== ingredientToDelete
             );
-            if (nextIngredients.length <= 3) setRecipeShown(false);
+            setShouldShowRecipe(nextIngredients.length > 3);
             return nextIngredients;
         });
     }
 
     function handleClearAll() {
         setIngredients([]);
-        setRecipeShown(false);
-    }
-
-    function handleGetRecipe() {
-        setRecipeShown(true);
+        setShouldShowRecipe(false);
     }
 
     return (
@@ -82,7 +80,13 @@ export const IngredientSection = ({ setRecipeShown }) => {
                         <h4>Ready for a recipe?</h4>
                         <p>Generate a recipe from your list of ingredients.</p>
                     </div>
-                    <button onClick={handleGetRecipe}>Get a recipe</button>
+                    <button
+                        type="button"
+                        onClick={onGetRecipe}
+                        disabled={isGenerating}
+                    >
+                        {isGenerating ? 'Getting recipe...' : 'Get a recipe'}
+                    </button>
                 </div>
             )}
         </section>
